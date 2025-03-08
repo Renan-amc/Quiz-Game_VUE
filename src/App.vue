@@ -1,7 +1,5 @@
 <template>
 
-  <div></div>
-
   <div>
       
       <ScoreBoard :winCount="this.winCount" :loseCount="this.loseCount" />
