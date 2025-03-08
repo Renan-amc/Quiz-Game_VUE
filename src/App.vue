@@ -2,8 +2,7 @@
 
   <div>
       
-      <ScoreBoard></ScoreBoard>
-      <ScoreBoardComponenet></ScoreBoardComponenet>
+      <ScoreBoard :winCount="this.winCount" :loseCount="this.loseCount" />
 
       <h1 v-html="this.question">
       </h1>
@@ -34,12 +33,12 @@
       <section v-if="this.answerSubmitted" class="result">
         <h4 v-if="this.chosen_answer == this.correctAnswers"
 
-        v-html="'&#9989; Congratulations, the answer ' + this.correctAnswers + ' is correct.'">
+        v-html="'&#9989; Congratulations, the answer: ' + this.correctAnswers + ' is correct.'">
           
         </h4>
         <h4 v-else
         
-        v-html="'&#10060; I`m sorry, you picked the wrong answer. The correct is' +  this.correctAnswers + '.'">
+        v-html="'&#10060; I`m sorry, you picked the wrong answer. The correct is: ' +  this.correctAnswers + '.'">
           
         </h4>
         <button @click="this.getNewQuestion(), this.refresh()"  class="send" type="button">Next question</button>
@@ -67,7 +66,8 @@ export default {
       correctAnswers: undefined,
       chosen_answer: undefined,
       answerSubmitted: false,
-
+      winCount: 0,
+      loseCount: 0,
 
       isDelayed: false,
       elapsedTime: 5
@@ -105,9 +105,9 @@ export default {
       } else  {
         this.answerSubmitted = true;
         if(this.chosen_answer == this.correctAnswers) {
-          console.log("You got it right")
+          this.winCount++
         } else {
-          console.log("You got it wrong");
+          this.loseCount++
         }
       }
     },

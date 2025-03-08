@@ -1,16 +1,27 @@
 <template>
 
     <section class="score">
-        Player <span>0</span> x <span>0</span> Computer
+        Player <span>{{this.winCount}}</span> x <span>{{this.loseCount}}</span> Computer
     </section>
 
 </template>
 
 <script>
 
-    export default {
-        name: 'ScoreBoard'
+export default {
+  name: 'ScoreBoard',
+  props: {
+    winCount: {
+      type: Number,
+      default: 0 // Valor padrão
+    },
+    loseCount: {
+      type: Number,
+      default: 0 // Valor padrão
     }
+  }
+}
+
 
 </script>
 
