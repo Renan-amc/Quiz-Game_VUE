@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: "/Quiz-Game_VUE/"
+  publicPath: process.env.NODE_ENV === "production" ? "/Quiz-Game_VUE/" : "/",
 };
